@@ -1,0 +1,81 @@
+/* =========================
+   ShopSphere Rating CSS
+   ========================= */
+
+/* Display stars */
+
+.stars {
+    display: inline-flex;
+    gap: 3px;
+    color: #f59e0b;
+    font-size: 22px;
+    letter-spacing: 2px;
+}
+
+.stars-empty {
+    color: #d1d5db;
+}
+
+/* Average rating */
+
+.average-rating {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.average-number {
+    font-size: 17px;
+    font-weight: bold;
+    color: #374151;
+}
+
+/* Review rating */
+
+.review-stars {
+    color: #f59e0b;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+/* =========================
+   Rating Input
+   ========================= */
+
+.rating-input {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 5px;
+    margin: 10px 0 20px;
+}
+
+.rating-input input {
+    display: none;
+}
+
+.rating-input label {
+    font-size: 38px;
+    color: #d1d5db;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* Hover */
+
+.rating-input label:hover,
+.rating-input label:hover ~ label {
+    color: #f59e0b;
+}
+
+/* Selected */
+
+.rating-input input:checked ~ label {
+    color: #f59e0b;
+}
+
+/* Small rating */
+
+.small-stars {
+    font-size: 18px;
+}
