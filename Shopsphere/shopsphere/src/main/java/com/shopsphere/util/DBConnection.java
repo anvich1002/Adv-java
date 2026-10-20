@@ -1,5 +1,3 @@
-
-
 package com.shopsphere.util;
 
 import java.sql.Connection;
@@ -9,39 +7,25 @@ import java.sql.SQLException;
 public class DBConnection {
 
     private static final String URL =
-            "jdbc:mysql://localhost:3306/shopsphere";
+        "jdbc:mysql://localhost:3306/shopsphere?useSSL=false&serverTimezone=UTC";
 
     private static final String USER = "root";
 
-    private static final String PASSWORD = "Divya@11869";
+    // Yahan apna actual MySQL password likho
+    private static final String PASSWORD = "Anaviya@1518";
 
-    public static Connection getConnection() {
-
+    public static Connection getConnection() throws SQLException {
         try {
-
             Class.forName("com.mysql.cj.jdbc.Driver");
-
-            Connection con = DriverManager.getConnection(
-                    URL,
-                    USER,
-                    PASSWORD
-            );
-
-            System.out.println("ShopSphere Database Connected Successfully!");
-
-            return con;
-
         } catch (ClassNotFoundException e) {
-
-            System.out.println("MySQL JDBC Driver NOT FOUND!");
-            e.printStackTrace();
-
-        } catch (SQLException e) {
-
-            System.out.println("MySQL Connection FAILED!");
-            e.printStackTrace();
+            throw new SQLException("MySQL JDBC Driver not found.", e);
         }
 
-        return null;
+        Connection con = DriverManager.getConnection(
+            URL, USER, PASSWORD
+        );
+
+        System.out.println("ShopSphere database connected successfully!");
+        return con;
     }
 }
